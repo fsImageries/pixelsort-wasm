@@ -1,6 +1,7 @@
 import { NdArray } from "../node_modules/ndarray-wasm/assembly";
 
 import { quickSort } from "./quicksort";
+import { timSort } from "./timsort";
 import { options } from "./options";
 import { setRange, getPixel } from "./utils";
 import { funcSwitch } from "./colorFns";
@@ -79,7 +80,9 @@ export function sortRanges(pixels: u8[], shape: i32[]): u8[] {
         rangeIndex + pixelRange.length >= innerBand
       ) {
         // timsort.sort(pixelRange, compareOptions.function);
-        quickSort(pixelRange, 0, pixelRange.length - 1);
+        // quickSort(pixelRange, 0, pixelRange.length - 1);
+        timSort<u8[]>(pixelRange, pixelRange.length)
+
         if (options.reverse) pixelRange.reverse();
 
         if (!options.vertical) setRange(image, outer, rangeIndex, pixelRange);
