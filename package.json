@@ -1,0 +1,23 @@
+{
+  "name": "pixelsort_wasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "asbuild:untouched": "asc assembly/index.ts --target debug --transform as-bind --exportRuntime",
+    "asbuild:optimized": "asc assembly/index.ts --target release --transform as-bind --exportRuntime",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.19.23",
+    "as-bind": "^0.8.2",
+    "ndarray-wasm": "github:fsImageries/ndarray-wasm"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.19.23"
+  }
+}
