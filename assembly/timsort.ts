@@ -5,18 +5,33 @@ const RUN = 32;
 
 // this function sorts array from left index to
 // to right index which is of size atmost RUN
-function insertionSort<T>(arr: T[], left: i32, right: i32): void {
-  const fn = funcSwitch.get(options.sortFunction);
+// function insertionSort<T>(arr: T[], left: i32, right: i32): void {
+//   const fn = funcSwitch.get(options.sortFunction);
 
-  for (let i = left + 1; i <= right; i++) {
-    const temp = arr[i];
-    let j = i - 1;
-    // @ts-expect-error
-    while (fn(arr[j]) > fn(temp) && j >= left) {
-      arr[j + 1] = arr[j];
-      j--;
-    }
-    arr[j + 1] = temp;
+//   for (let i = left + 1; i <= right; i++) {
+//     const temp = arr[i];
+//     let j = i - 1;
+//     // @ts-expect-error
+//     while (fn(arr[j]) > fn(temp) && j >= left) {
+//       arr[j + 1] = arr[j];
+//       j--;
+//     }
+//     arr[j + 1] = temp;
+//   }
+// }
+
+function insertionSort<T>(a:T[], lo:i32, hi:i32):void{
+  const c = funcSwitch.get(options.sortFunction);
+
+  for(let i = lo; i < hi; i++){
+      let val = a[i],
+          j = i - 1;
+
+      while(j >= 0 && c(a[j]) > c(val)){
+          a[j + 1] = a[j];
+          j--;
+      }
+      a[j + 1] = val;
   }
 }
 

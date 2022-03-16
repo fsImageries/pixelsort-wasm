@@ -6,6 +6,8 @@ import { options } from "./options";
 import { setRange, getPixel } from "./utils";
 import { funcSwitch } from "./colorFns";
 
+export {test} from "./timsort_test"
+
 export {
   setVertical,
   setThreshhold,
@@ -81,7 +83,8 @@ export function sortRanges(pixels: u8[], shape: i32[]): u8[] {
       ) {
         // timsort.sort(pixelRange, compareOptions.function);
         // quickSort(pixelRange, 0, pixelRange.length - 1);
-        timSort<u8[]>(pixelRange, pixelRange.length)
+        // timSort<u8[]>(pixelRange, pixelRange.length)
+        pixelRange.sort(sorter)
 
         if (options.reverse) pixelRange.reverse();
 
@@ -93,4 +96,11 @@ export function sortRanges(pixels: u8[], shape: i32[]): u8[] {
   }
 
   return image.data.slice(0);
+}
+
+function sorter(a:u8[], b:u8[]):i32{
+  const fn = funcSwitch.get(options.sortFunction);
+  if (fn(a) < fn(b)) return -1
+  else if (fn(a) > fn(b)) return 1
+  return 0
 }
