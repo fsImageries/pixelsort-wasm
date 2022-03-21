@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tests",
     "asbuild:untouched": "asc assembly/index.ts --target debug --transform as-bind --exportRuntime",
     "asbuild:optimized": "asc assembly/index.ts --target release --transform as-bind --exportRuntime",
     "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"

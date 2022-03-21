@@ -9,6 +9,6 @@ const asyncTask = async () => {
 
   // You can now use your wasm / as-bind instance!
 
-  console.log(asBindInstance.exports.test()); // AsBind: Hello World!
+  console.log(asBindInstance.exports);
 };
 asyncTask();

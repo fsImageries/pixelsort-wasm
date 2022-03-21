@@ -1,4 +1,4 @@
-import { NdArray } from "../node_modules/ndarray-wasm/assembly";
+import { NdArray } from "ndarray-wasm/assembly";
 import { options } from "./options";
 
 export function setRange(

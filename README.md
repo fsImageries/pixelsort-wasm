@@ -1,4 +1,7 @@
 # pixelsort-wasm
 
 [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) pixel sort core.
-Currently only all pixels or pixel ranges are supported.
+
+### TODOS
+
+- [ ] fix NdArray import path when placed in node_modules (write build script which changes import when building)

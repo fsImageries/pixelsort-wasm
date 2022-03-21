@@ -1,5 +1,5 @@
 {
-  "extends": "../../../../AppData/Roaming/npm/node_modules/assemblyscript/std/assembly.json",
+  "extends": "assemblyscript/std/assembly.json",
   "include": [
     "./**/*.ts"
   ]
